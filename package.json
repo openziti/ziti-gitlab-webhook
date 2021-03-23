@@ -1,6 +1,6 @@
 {
   "name": "ziti-gitlab-webhook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "POST a Webhook over a Ziti network from a GitLab CI pipeline",
   "main": "dist/index.js",
   "scripts": {
