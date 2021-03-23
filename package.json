@@ -1,0 +1,31 @@
+{
+  "name": "ziti-gitlab-webhook",
+  "version": "0.1.0",
+  "description": "POST a Webhook over a Ziti network from a GitLab CI pipeline",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openziti/ziti-gitlab-webhook.git"
+  },
+  "keywords": [
+    "gitlab",
+    "ziti",
+    "webhook"
+  ],
+  "author": {
+    "name": "NetFoundry",
+    "url": "http://netfoundry.io"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/openziti/ziti-gitlab-webhook/issues"
+  },
+  "homepage": "https://github.com/openziti/ziti-gitlab-webhook#readme",
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "ziti-sdk-nodejs": "^0.2.3"
+  }
+}
