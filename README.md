@@ -28,30 +28,37 @@ notify-job:
 
   rules:
 
-    # Run this job based on whatever events you are interested in. Here we run whenever updates are
-    # pushed into the repo.
+    # Run this job based on whatever events you are interested in. 
+    # Here we run whenever updates are pushed into the repo.
     - if: '$CI_PIPELINE_SOURCE == "push"'
       when: always
 
   variables:
 
     # WEBHOOK_URL specifies the URL to post the event payload.
-    # Note that the Ziti service name must match the hostname in the URL (e.g. "your-mattermost.ziti").
-    # Also note that "xxx-generatedkey-xxx" in this URL example should be replaced with the generated
-    # key associated with the incoming webhook you established on your Mattermost instance.
+    # Note that the Ziti service name must match the hostname
+    # in the URL (e.g. "your-mattermost.ziti"). Also note that
+    # "xxx-generatedkey-xxx" in this URL example should be replaced
+    # with the generated key associated with the incoming webhook
+    # you established on your Mattermost instance.
     WEBHOOK_URL: 'https://your-mattermost.ziti/hooks/xxx-generatedkey-xxx'
 
-    # Identity JSON containing key to access a Ziti network. We suggest specifying it in a variable controlled through the GitLab UI.
+    # Identity JSON containing key to access a Ziti network.
+    # We suggest specifying it in a variable controlled through
+    # the GitLab UI.
     ZITI_IDENTITY: '${ZITI_IDENTITY}'
   
   script:
   
-    # The WEBHOOK_PAYLOAD env var should be set to an arbitrary JSON salvo that will be POST'ed to the Ziti service.
-    # For example, if you are using Mattermost as the target, you can use the JSON format described at: 
+    # The WEBHOOK_PAYLOAD env var should be set to an arbitrary
+    # JSON salvo that will be POST'ed to the Ziti service.
+    # For example, if you are using Mattermost as the target,
+    # you can use the JSON format described at: 
     #     https://developers.mattermost.com/integrate/incoming-webhooks/
     #
-    # GitLab exposes lots of information via pre-defined env vars, and you can extract information from them and craft
-    # a payload that provides value to you.
+    # GitLab exposes lots of information via pre-defined env vars,
+    # and you can extract information from them and craft a payload
+    # that provides value to you.
     - export WEBHOOK_PAYLOAD='{"channel":"my-channel-name", "text":"whatever text your script want to set"}'
 
     # Transmit the webhook to the service over Ziti
