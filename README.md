@@ -59,7 +59,6 @@ notify-job:
 ```
 ## Ziti Identity
 
-The `ziti-id` input is the JSON formatted string of an identity enrolled  in a `Ziti` netowrk.
+The `ZITI_IDENTITY` input is the JSON formatted string of an identity enrolled  in a `Ziti` netowrk.
 
 The identity can be created by enrolling via the `ziti edge enroll path/to/jwt [flags]` command.  The `ziti` executable can be obtained [here](https://github.com/openziti/ziti/releases/latest).
-Save
