@@ -69,3 +69,20 @@ notify-job:
 The `ZITI_IDENTITY` referenced above is the JSON formatted string of an identity enrolled  in a `Ziti` network.
 
 The identity can be created by enrolling via the `ziti edge enroll path/to/jwt [flags]` command.  The `ziti` executable can be obtained [here](https://github.com/openziti/ziti/releases/latest).
+
+## How does the gitlab example work?
+
+On line 87 an asynchronous method is called that completes the following steps
+1. We load the zid.json file.
+2. Then we load the ZITI_IDENTITY, WEBHOOK_URL, WEBHOOK_PAYLOAD from the env file.
+3. If the zitiId or webhookpayload is empty then an error is logged and the process is exited.
+4. The method writeFilesync from the fs module is used to write the zidFile and zitiId. The method creates a new file if the specified file does not exist. 
+5. The zidFile is passed to the zitiInitMethod. If this fails an error is logged and the process is exited.
+6. The webhook url is declared.
+7. The service name is declared.
+7. The serviceName is passed to the zitiServiceAvaliable method. If this fails an error is logged and the process is exited.
+8. The headers for the webhook http request are declared. 
+9. The webhook url, http method, and headers are passed to the zitiHttpRequest method. If this method fails an error is logged and the process is exited. 
+10. The request from the zitiHttpRequest is processed by the zitiHttpRequest method. This method takes the request and the webhook payload. If this fails an error is logged and the process is exited.
+11. Finally, the ziti_https_request_end method is called. This method terminates the request.
+
