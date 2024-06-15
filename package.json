@@ -26,6 +26,6 @@
   "homepage": "https://github.com/openziti/ziti-gitlab-webhook#readme",
   "dependencies": {
     "uuid": "^8.3.2",
-    "ziti-sdk-nodejs": "^0.2.3"
+    "ziti-sdk-nodejs": "^0.4.0"
   }
 }
